@@ -18,7 +18,7 @@ here=$(cd "$(dirname "$0")" && pwd)
 binary=$(cd "$(dirname "$1")" && pwd)/$(basename "$1")
 version=$2
 out=$(mkdir -p "$3" && cd "$3" && pwd)
-name=horizon-launcher-linux-x86_64.AppImage
+name=bloodmoon-launcher-linux-x86_64.AppImage
 
 work=$(mktemp -d)
 trap 'rm -rf "$work"' EXIT
