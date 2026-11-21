@@ -564,8 +564,8 @@ const NAMES: [&str; 7] = ["violet", "blue", "teal", "green", "amber", "red", "pi
 
 impl Accent {
     pub const VIOLET: Accent = Accent {
-        hue: None,
-        rgb: None,
+        hue: Some(350.),
+        rgb: Some(0xb51f3b),
     };
     pub const BLUE: Accent = Accent {
         hue: Some(212.),
