@@ -82,9 +82,9 @@ pub fn launcher_entry(exe: &Path) -> String {
     format!(
         "[Desktop Entry]\n\
          Type=Application\n\
-         Name=Horizon\n\
+         Name=BloodMoon Launcher\n\
          GenericName=Game launcher\n\
-         Comment=Install, prepare and play Horizon, Minecraft: Java Edition {minecraft} rewritten in Rust\n\
+         Comment=Install, prepare and play Minecraft: Java Edition with BloodMoon Launcher\n\
          Exec={}\n\
          TryExec={}\n\
          Icon=horizon\n\
