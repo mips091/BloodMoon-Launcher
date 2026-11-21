@@ -2,7 +2,7 @@
 //! Home.
 //!
 //! An accent is a hue, and the player may pick any of them; seven hues have names, as shortcuts.
-//! Horizon's violet is the default. Another hue turns the violet tokens (`horizon_theme::Blocks`'
+//! BloodMoon's crimson is the default; the named violet remains available. Another hue turns the violet tokens (`horizon_theme::Blocks`'
 //! accent and the main action's face, bevel and lip) to it, keeping their saturation and
 //! lightness, then darkens or lightens each just enough to read as well as the violet does: white
 //! on the face at 4.5:1, the accent at 3:1 on every background.
@@ -13,7 +13,7 @@ use std::path::{Path, PathBuf};
 /// An accent: a hue in degrees, or none for Horizon's violet, whose tokens are the palette's own
 /// and stay untouched; and for a colour typed as hex, that colour (the glass look wears it as
 /// is, the light look takes its hue).
-#[derive(Clone, Copy, Debug, Default, PartialEq, serde::Serialize, serde::Deserialize)]
+#[derive(Clone, Copy, Debug, PartialEq, serde::Serialize, serde::Deserialize)]
 #[serde(try_from = "String", into = "String")]
 pub struct Accent {
     hue: Option<f32>,
@@ -537,15 +537,15 @@ pub fn accent_key(id: Option<&str>) -> &str {
     theme(id).map_or(HORIZON, |t| t.id)
 }
 
-/// The accent a theme starts with: the one last picked under it, else its own (violet for
-/// Horizon's).
+/// The accent a theme starts with: the one last picked under it, else its own (BloodMoon crimson
+/// for the launcher's original theme).
 pub fn starting_accent(
     id: Option<&str>,
     kept: &std::collections::BTreeMap<String, Accent>,
 ) -> Accent {
     kept.get(accent_key(id))
         .copied()
-        .unwrap_or_else(|| theme(id).map_or(Accent::VIOLET, |t| t.accent.accent()))
+        .unwrap_or_else(|| theme(id).map_or(Accent::BLOODMOON, |t| t.accent.accent()))
 }
 
 /// The theme named `id` (`Settings::theme`); None for Horizon's own sky or a name this launcher
@@ -562,10 +562,20 @@ pub const SWATCHES: [u32; 7] = [
 /// [`Accent::ALL`]'s names, in its order.
 const NAMES: [&str; 7] = ["violet", "blue", "teal", "green", "amber", "red", "pink"];
 
+impl Default for Accent {
+    fn default() -> Self {
+        Self::BLOODMOON
+    }
+}
+
 impl Accent {
-    pub const VIOLET: Accent = Accent {
+    pub const BLOODMOON: Accent = Accent {
         hue: Some(350.),
         rgb: Some(0xb51f3b),
+    };
+    pub const VIOLET: Accent = Accent {
+        hue: None,
+        rgb: None,
     };
     pub const BLUE: Accent = Accent {
         hue: Some(212.),
