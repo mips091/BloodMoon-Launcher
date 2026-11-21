@@ -162,7 +162,7 @@ impl Launcher {
             .border_color(white(ui::edge::REST))
             .child(ui::pill_origin(&origin));
         for (i, (label, mark)) in [
-            ("Horizon: your Horizon instances", horizon),
+            ("BloodMoon: your BloodMoon instances", horizon),
             ("Java Edition: your Java instances", grass),
         ]
         .into_iter()
@@ -238,11 +238,16 @@ impl Launcher {
             return div();
         };
         let edit = instance.clone();
+        let display_name = if instance.name == "Horizon" {
+            "BloodMoon".to_string()
+        } else {
+            instance.name.clone()
+        };
         let cut = ui::cut(
             cx,
             &self.rooms,
             "home-title",
-            &instance.name,
+            &display_name,
             horizon_theme::glass::DISPLAY_FONT,
             44.,
             FontWeight::SEMIBOLD,
@@ -278,9 +283,9 @@ impl Launcher {
                     .line_height(px(48.))
                     .text_color(white(ink::FULL))
                     // A long name is cut at the header's width: the whole of it on hover.
-                    .when(cut, |d| d.tooltip(ui::tip(instance.name.clone())))
+                    .when(cut, |d| d.tooltip(ui::tip(display_name.clone())))
                     .child(ui::room(&self.rooms, "home-title".into()))
-                    .child(instance.name),
+                    .child(display_name),
             )
             .child(div().flex_1())
             .child(
