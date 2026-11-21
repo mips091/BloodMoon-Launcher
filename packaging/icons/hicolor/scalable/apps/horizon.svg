@@ -1,10 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-  <title>Horizon</title>
+  <title>BloodMoon</title>
   <clipPath id="tile"><rect width="16" height="16" rx="3.5"/></clipPath>
   <g clip-path="url(#tile)">
-    <rect width="16" height="16" fill="#16181f"/>
-    <g fill="#ecedf3"><rect x="4" y="3" width="2" height="4"/><rect x="10" y="3" width="2" height="4"/></g>
-    <g fill="#ecedf3" opacity=".36"><rect x="4" y="8" width="2" height="4"/><rect x="10" y="8" width="2" height="4"/></g>
-    <rect y="7" width="16" height="1" fill="#9a86ff"/>
+    <rect width="16" height="16" fill="#080609"/>
+    <circle cx="8" cy="8" r="5.6" fill="#b51f3b"/>
+    <circle cx="9.9" cy="6.1" r="4.7" fill="#080609"/>
+    <path d="M1 11.7C4.3 9.6 8.7 9.1 15 10.2" fill="none" stroke="#ff8297" stroke-width=".65" opacity=".9"/>
+    <circle cx="3" cy="4" r=".55" fill="#f4f2ff"/>
+    <circle cx="12.8" cy="3.1" r=".35" fill="#f4f2ff" opacity=".8"/>
   </g>
 </svg>
