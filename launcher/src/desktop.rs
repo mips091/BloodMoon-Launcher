@@ -92,8 +92,7 @@ pub fn launcher_entry(exe: &Path) -> String {
          Categories=Game;\n\
          StartupWMClass=horizon-launcher\n",
         quote(exe),
-        exe.display(),
-        minecraft = horizon_platform::version::VANILLA_VERSION,
+        exe.display()
     )
 }
 
