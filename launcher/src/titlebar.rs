@@ -85,7 +85,7 @@ pub fn render(theme: &Theme, window: &Window) -> Option<Div> {
         .child(mark(16., theme))
         .child(
             blocks::pixel(13., FontWeight::MEDIUM)
-                .child(horizon_launcher::i18n::tr("Horizon Launcher")),
+                .child("BloodMoon Launcher"),
         );
 
     let mut bar = div()
